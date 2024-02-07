@@ -5,18 +5,10 @@ import { gql } from '@apollo/client';
 const GET_NEWS = gql`
 query Allnews{
   characters(page: 2, filter: { name: "rick" }) {
-    info {
-      count
-    }
     results {
+      id
       name
     }
-  }
-  location(id: 1) {
-    id
-  }
-  episodesByIds(ids: [1, 2]) {
-    id
   }
 }
 `;
@@ -24,14 +16,23 @@ query Allnews{
 function News() {
   const { loading, error, data } = useQuery(GET_NEWS);
 
-  console.log(data, loading);
+  console.log(data);
   
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
     <div>
-      <h2>News</h2>
+      <h2>Rick and Morty</h2>
+
+      {
+        error ? <div>Error on server</div> : (
+          loading ? <div>Loading...</div> : 
+          data.characters.results.map((e:any) => (
+            <li>{e?.name}</li>
+          ))
+        )
+      }
      
     </div>
   );
