@@ -1,13 +1,14 @@
-import { ApolloProvider } from '@apollo/client';
-import { AppProps } from 'next/app';
-import client from '../apolloClient'; 
+"use client"
+import React from 'react';
+import { ApolloProvider, useQuery } from '@apollo/client';
+import client from '../apolloClient';
+import { AppProps } from 'next/dist/shared/lib/router/router';
 
-function App({ Component, pageProps }: AppProps) {
+
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <Component {...pageProps} />
     </ApolloProvider>
   );
 }
-
-export default App;

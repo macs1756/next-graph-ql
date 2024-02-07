@@ -3,31 +3,36 @@ import { useQuery } from '@apollo/client';
 import { gql } from '@apollo/client';
 
 const GET_NEWS = gql`
-  query ExampleQuery {
-    roadster {
-      apoapsis_au
+query Allnews{
+  characters(page: 2, filter: { name: "rick" }) {
+    info {
+      count
     }
-    company {
-      ceo
-      employees
+    results {
       name
     }
   }
+  location(id: 1) {
+    id
+  }
+  episodesByIds(ids: [1, 2]) {
+    id
+  }
+}
 `;
 
 function News() {
   const { loading, error, data } = useQuery(GET_NEWS);
 
+  console.log(data, loading);
+  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
     <div>
       <h2>News</h2>
-      <p>Roadster Apoapsis: {data.roadster.apoapsis_au}</p>
-      <p>Company Name: {data.company.name}</p>
-      <p>CEO: {data.company.ceo}</p>
-      <p>Number of Employees: {data.company.employees}</p>
+     
     </div>
   );
 }
