@@ -37,8 +37,8 @@ function Locations() {
       <h2></h2>
       <ul>
         {
-          data.locations.results.map((e:any)=>(
-              <li>{e?.name}</li>
+          data.locations.results.map((e: any, i: number)=>(
+              <li key={e?.id + i}><Link href={'/locations/' + e?.id}>{e?.name}</Link></li>
           ))
         }
       </ul>
