@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Link href='/news'>News</Link>
+        <Link href='/rick'>Chapters with rick</Link>
       </main>
     </>
   );
