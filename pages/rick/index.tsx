@@ -1,26 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { gql } from '@apollo/client';
-import Image from 'next/image';
-import Link from 'next/link';
 import Catalog from '@/Components/Catalog';
-
-const GET_NEWS = gql`
-query RichChapters{
-  characters(page: 2, filter: { name: "rick" }) {
-    results {
-      id
-      name
-      image
-    }
-  }
-}
-`;
+import { GET_RICK } from '@/schemas';
 
 function News() {
-  const { loading, error, data } = useQuery(GET_NEWS);
+  const { loading, error, data } = useQuery(GET_RICK);
 
-  console.log(data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -38,3 +23,5 @@ function News() {
 }
 
 export default News;
+
+
