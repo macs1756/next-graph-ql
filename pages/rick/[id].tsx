@@ -18,6 +18,10 @@ function SingleCard() {
       location{
         name
       }
+      episode {
+        id
+        name
+      }
     }
   }
 `;
@@ -40,6 +44,8 @@ function SingleCard() {
               <h2></h2>
               <h2>{data.character.name}</h2>
               <p>{data.character.location.name}</p>
+              <p>-</p>
+              <p>{data.character.episode[0]?.name}</p>
                </div>
             )
         )
