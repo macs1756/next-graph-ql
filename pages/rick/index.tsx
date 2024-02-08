@@ -10,7 +10,7 @@ function News() {
   const [currentPage, setCurrentPage] = useState<number>(1)
 
   const GET_RICK = gql`
-query RichChapters{
+query RickChapters{
   characters(page: ${currentPage}, filter: { name: "rick" }) {
     results {
       id
@@ -35,6 +35,7 @@ query RichChapters{
   return (
     <>
       <button onClick={nextPage}>Get more</button>
+      <h2></h2>
       <Catalog
         title='Rick and Morty (Chapters Rick)'
         data={data}
