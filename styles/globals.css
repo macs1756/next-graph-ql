@@ -115,3 +115,22 @@ a {
 h2{
   margin-bottom: 20px;
 }
+
+.d-flex{
+  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.d-flex img{
+    border-radius: 5px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
